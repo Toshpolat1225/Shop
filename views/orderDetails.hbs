@@ -1,0 +1,25 @@
+<section id="orderDetails" class="auth">
+    <div class="wrapper">
+        <h2 class="auth__title">Оформление заказа</h2>
+        <div class="auth__content">
+            <form class="auth__form">
+                <h3 id="errorMessage"></h3>
+                <div class="auth__form__content">
+                    <input id="phoneNumber" required type="text" class="auth__form__input" placeholder="Номер телефона">
+                    <input id="name" required type="text" class="auth__form__input" placeholder="Имя">
+                    <input id="street" type="text" class="auth__form__input" placeholder="Название улицы">
+                    <input id="homeNumber" type="text" class="auth__form__input" placeholder="Номер дома">
+                    <select id="deliveryTime" id="deliveryTime" class="auth__form__input">
+                        {{#each deliveryTime}}
+                        <option data-id="{{timeId}}">{{timeInterval}}</option>
+                        {{/each}}
+                    </select>
+                    <button id="submit" type="submit" class="auth__form__submit">Оформить заказ </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<script src="/js/jquery-3.2.1.min.js"></script>
+<script src="/js/jquery.maskedinput.min.js"></script>
+<script> $("#phoneNumber").mask("+998111111111", { placeholder: '' })</script>

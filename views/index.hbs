@@ -1,0 +1,70 @@
+<!-- SECTION SLIDER START -->
+<section class="slider">
+    <div class="wrapper">
+        <div class="slider__head owl-carousel">
+            {{#each slider}}
+            <div class="slider__head__item">
+                <a href="{{ref}}" class="slider__head__link"><img class="slider__head__img" src="{{imageSrc}}"
+                        alt="png"></a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- SECTION SLIDER END -->
+
+<div class="categories">
+    <div class="wrapper">
+        <h2 class="categories__title">Категории товаров</h2>
+        <div class="categories__inner">
+            {{#each categories}}
+            <div class="categories__item">
+                <a href="/products/{{_id}}" class="categories__item-link">
+                    <h3 class="categories__item-title">{{name}}</h3>
+                    <div class="categories__item-img">
+                        <img src="{{imageSrc}}" alt="">
+                    </div>
+                </a>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</div>
+
+<!-- SECTION PRODUCTS START -->
+<section class="products">
+    <div class="wrapper">
+        <h2 class="products__title">Рекомендованные товары</h2>
+        <div class="products__head">
+            {{#each products}}
+            <div class="products__item ">
+                <a href="#!" class="products__item__link">
+                    <img class="products__item__img" src="{{imageSrc}}" alt="jpg">
+                </a>
+                {{#if isExist}}
+                {{else}}
+                <div class="products__item__empty">Нет в наличии</div>
+                {{/if}}
+                <p class="products__item__name">{{name}}</p>
+                {{#if isAdmin}}
+                <p>Приоритет: {{priority}}</p>
+                {{/if}}
+                <span class="products__item__amount">{{cost}} Сум</span>
+                <div class="products__item__btns">
+                    <button class="products__item__btn">В корзину <span class="products__item__icon"><i
+                                class="fal fa-shopping-cart"></i></span></button>
+                    <div class="quantity">
+                        <div class="quantity__amount">
+                            <button class="quantity__minus"><i class="far fa-minus"></i></button>
+                            <span class="quantity__show"></span>
+                            <button class="quantity__pilus"><i class="far fa-plus"></i></button>
+                        </div>
+                        <button class="quantity__add" data-id="{{_id}}"><i class="fas fa-cart-arrow-down"></i></button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<!-- SECTION PRODUCTS END -->

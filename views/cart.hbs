@@ -1,0 +1,58 @@
+<!-- SECTION CARD START -->
+<h3 class="hide" id="instruction">Сдвиньте карту для нахождение своего дома, и кликайте для указание местоположения</h3>
+<div id="map" class="map hide"></div>
+<button id="hideButton" class="hide">
+    <span>OK</span>
+</button>
+<section id="card" class="card">
+    <div class="wrapper">
+        <h3 class="card__head">Корзина <span class="card__head__count">{{cart.countProducts}}</span></h3>
+        <a href="/">
+            <button class="card__products__add">
+                <i class="far fa-chevron-left"></i>Добавить товар</button>
+        </a>
+        <p class="error">{{cartError}}</p>
+        <div class="card__box">
+
+            <div class="card__products">
+                {{!-- Здесь будут продукты которы добавлены в корзину --}}
+            </div>
+
+            <div class="card__payment payment hide">
+                <div class="payment__top">
+                    <span class="payment__top__item"><i class="fal fa-exclamation-triangle"></i></span>
+                    <p class="payment__top__text">Минимальная сумма заказа 30 000 Сум.</p>
+                </div>
+                <div class="payment__bottom">
+                    <div class="payment__basket">
+                        <div class="payment__view">
+                            <span class="payment__view__span">Итого:</span>
+                            <p class="payment__view__item">Общая стоимость,
+                                без учета доставки</p>
+                        </div>
+                        <div class="payment__total">
+                            <span class="payment__total__amount"></span>
+                            <span class="payment__total__currency">Сум</span>
+                        </div>
+                    </div>
+                </div>
+                <div id="checkout">
+                    <a href="/orders/orderDetails">
+                        <button class="payment__btn" type="submit">Оформить заказ</button>
+                    </a>
+                </div>
+                <form action="/orders" method="POST">
+                    <input id="timeId" name="timeId" type="hidden">
+                    <input id="timeInterval" name="timeInterval" type="hidden">
+                    <input id="latitude" name="latitude" type="hidden">
+                    <input id="longitude" name="longitude" type="hidden">
+                    <div id="checkout" class="hide">
+                        <button class="payment__btn" type="submit">Оформить заказ</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SECTION CARD END -->

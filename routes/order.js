@@ -1,0 +1,17 @@
+const { Router } = require('express')
+const auth = require('../middleware/auth')
+const isAdmin = require('../middleware/admin')
+const controllers = require('../controllers/order')
+const {orderValidators} = require('../middleware/validators')
+const router = Router()
+
+router.get('/', controllers.getAll)
+router.post('/',controllers.create)
+router.get('/delete/:order', isAdmin, controllers.delete)
+router.patch('/', controllers.setWrappedAndDeliveredState)
+router.get('/map',isAdmin,controllers.showOrdersOnMap)
+router.get('/getAdress',isAdmin,controllers.getAdress)
+router.get('/sendLocation/:orderNumber',controllers.sendLocation)
+router.get('/orderDetails',controllers.getOrderDetailsPage)
+router.get('/order',controllers.getOrderPage)
+module.exports = router

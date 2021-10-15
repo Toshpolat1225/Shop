@@ -1,0 +1,33 @@
+<!-- SECTION CATEGORIES START -->
+<div class="categories">
+        <div class="wrapper">
+                <div class="index-back__link">
+                        <a href="/">
+                                <i class="fas fa-arrow-left"></i>
+                        </a>
+                </div>
+                {{#if categories}}
+                <h2 class="categories__title">Категории товаров</h2>
+                <div class="categories__inner">
+                        {{#each categories}}
+                        <div class="categories__item">
+                                <a href="/products/{{_id}}?page=1" class="categories__item-link">
+                                        <h3 class="categories__item-title">{{name}}</h3>
+                                        <div class="categories__item-img">
+                                                <img src="{{imageSrc}}" alt="">
+                                        </div>
+                                </a>
+                                {{#if isAdmin}}
+                                <p>Приоритет: {{priority}}</p>
+                                {{/if}}
+                        </div>
+                        {{/each}}
+
+
+                </div>
+                {{else}}
+                <h2 class="categories__title">Список категорий пуст</h2>
+                {{/if}}
+        </div>
+</div>
+<!-- SECTION CATEGORIES END -->
